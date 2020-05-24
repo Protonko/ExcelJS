@@ -1,0 +1,72 @@
+.header {
+
+    &-dashboard {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: rem($dashboard-header-height);
+
+        box-shadow: 0 rem(3px) rem(10px) rgba($black, .05);
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__top,
+    &__toolbar {
+        padding: rem(10px) 0;
+    }
+
+    &__logo {
+        flex-grow: 1;
+
+        &-icon {
+            $align-logo-padding: 7px;
+
+            padding-top: rem($align-logo-padding);
+        }
+    }
+
+    &__input {
+        flex-grow: 10;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+
+        .button {
+
+            &:not(:last-child) {
+                margin-right: rem(10px);
+            }
+        }
+    }
+
+    &__toolbar {
+        $border: rem(1px) solid $border-color;
+
+        border-top: $border;
+        border-bottom: $border;
+    }
+
+    &__formula {
+        $border: rem(1px) solid $border-color;
+
+        min-width: $min-cell-width;
+
+        border-bottom: $border;
+
+        &-info {
+            padding-right: rem(5px);
+
+            border-right: $border;
+        }
+    }
+}

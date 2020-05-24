@@ -1,0 +1,17 @@
+.logo {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        display: inline-block;
+
+        margin-right: rem(10px);
+    }
+
+    &__text {
+        font-size: rem(20px);
+        font-weight: $bold;
+
+        color: $shuttle-gray;
+    }
+}

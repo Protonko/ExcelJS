@@ -1,0 +1,59 @@
+.button {
+    display: inline-block;
+
+    padding: rem(5px);
+
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-function;
+
+    border: rem(1px) solid transparent;
+    border-radius: $border-radius-sm;
+    outline: none;
+
+    &--green {
+        background-color: $excel-light-color;
+
+        &:hover {
+            color: $white;
+            background-color: rgba($excel-color, .6);
+        }
+
+        &:active {
+            background-color: $excel-color;
+        }
+    }
+
+    &--red {
+        background-color: rgba($burnt-sienna, .3);
+
+        &:hover {
+            background-color: rgba($burnt-sienna, .6);
+        }
+
+        &:active {
+            color: $white;
+            background-color: $burnt-sienna;
+        }
+    }
+
+    &--tall {
+        $padding-vertical: 10px;
+
+        padding-top: rem($padding-vertical);
+        padding-bottom: rem($padding-vertical);
+    }
+
+    &--icon {
+        line-height: 100%;
+
+        padding: rem(5px);
+
+        background-color: transparent;
+
+        &:hover {
+            background-color: $bombay;
+        }
+    }
+}

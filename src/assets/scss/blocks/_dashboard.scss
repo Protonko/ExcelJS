@@ -1,0 +1,34 @@
+.dashboard {
+    margin-top: rem($dashboard-header-height);
+
+    &__new {
+        padding: rem(20px) 0;
+
+        background-color: $bombay;
+    }
+
+    &__items {
+        padding: 0;
+
+        list-style: none;
+    }
+
+    &__list {
+
+        &-header {
+            $vertical-indents: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: rem($vertical-indents);
+            padding-top: rem($vertical-indents);
+
+            &-text {
+                font-size: rem(20px);
+                font-weight: $bold;
+            }
+        }
+    }
+}

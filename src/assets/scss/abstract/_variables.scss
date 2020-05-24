@@ -7,8 +7,39 @@ $bold: 500;
 // colors
 $black: #000000;
 $mine-shaft: #3C3C3C;
-$chateau-green: #32A852;
+$mako: #414549;
+$shuttle-gray: #5F6368;
 $edward: #A1B1B1;
+$iron: #DADCE0;
+$panache: #E6F4EA;
+$bombay: #F1F3F4;
+$white: #FFFFFF;
+$burnt-sienna: #F05A4F;
+$jewel: #188038;
+$chateau-green: #32A852;
+$royal-blue: #1A73E8;
 
+$excel-color: $jewel;
+$excel-light-color: $panache;
+$shadow: $mako;
+$border-color: $iron;
 $text-color: $mine-shaft;
 $text-color-secondary: $edward;
+$cell-info-color: $bombay;
+$cell-selected: $royal-blue;
+
+// sizes
+$container-width: 1170px;
+$min-cell-width: 40px;
+$row-height: 24px;
+$cell-width: 120px;
+$dashboard-header-height: 95px;
+
+// borders
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$border-radius-sm: 5px;
+
+// transition
+$transition-duration: .3s;
+$transition-function: easy-in;

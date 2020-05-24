@@ -1,0 +1,14 @@
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: rem($cell-width);
+    min-width: rem($min-cell-width);
+    height: 100%;
+
+    border-width: 0 rem(1px) rem(1px) 0;
+    border-style: solid;
+    border-color: $border-color;
+    background-color: $cell-info-color;
+}

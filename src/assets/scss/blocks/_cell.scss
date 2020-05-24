@@ -1,0 +1,23 @@
+.cell {
+    $padding-cell: 5px;
+
+    line-height: 100%;
+
+    width: $cell-width;
+    min-width: $min-cell-width;
+    height: 100%;
+
+    padding: rem($padding-cell);
+
+    white-space: nowrap;
+
+    border-width: 0 rem(1px) rem(1px) 0;
+    border-style: solid;
+    border-color: $border-color;
+    outline: none;
+
+    &--selected {
+        border: none;
+        outline: rem(2px) solid $cell-selected;
+    }
+}

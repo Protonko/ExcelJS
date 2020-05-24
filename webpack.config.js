@@ -50,7 +50,7 @@ module.exports = {
     devtool: isProd ? false : 'source-map',
     devServer: {
         port: 3000,
-        hot: !isProd,
+        hot: isProd,
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -86,7 +86,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hmr: !isProd,
+                            hmr: isProd,
                             reloadAll: true,
                             sourceMap: true,
                         },
@@ -145,7 +145,7 @@ module.exports = {
                         loader: 'svgo-loader',
                         options: {
                             plugins: [
-                                {convertColors: {currentColor: true}},
+                                {convertColors: {currentColor: false}},
                                 {removeAttrs: {attrs: '(opacity)'}},
                             ],
                         },

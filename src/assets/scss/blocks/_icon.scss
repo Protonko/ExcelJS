@@ -1,0 +1,21 @@
+.icon {
+
+    &--logo {
+        width: rem(40px);
+        height: rem(40px);
+    }
+
+    &--toolbar {
+      width: rem(20px);
+      height: rem(20px);
+
+      color: rgba($black, .7);
+    }
+
+    &--add {
+        width: rem(50px);
+        height: rem(50px);
+
+        color: $excel-color;
+    }
+}

@@ -10,8 +10,18 @@
 @import "base/generic";
 @import "base/typography";
 
-p {
-  box-shadow: 1px 2px 3px #3C3C3C;
-}
-
 // blocks
+@import "blocks/input";
+@import "blocks/icon";
+@import "blocks/button";
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/logo";
+@import "blocks/formula";
+@import "blocks/cell";
+@import "blocks/row";
+@import "blocks/column";
+@import "blocks/table";
+@import "blocks/dashboard";
+@import "blocks/card";
+@import "blocks/info";
