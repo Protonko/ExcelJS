@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap'); // fonts
+@import "~../../../node_modules/normalize.css/normalize.css";
+
+// abstract
+@import "abstract/variables";
+@import "abstract/functions";
+@import "abstract/mixins";
+
+// base
+@import "base/generic";
+@import "base/typography";
+
+p {
+  box-shadow: 1px 2px 3px #3C3C3C;
+}
+
+// blocks

@@ -1,0 +1,11 @@
+@mixin resetting-vertical-indentation-of-first {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+@mixin resetting-vertical-indentation-of-last {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
