@@ -24,6 +24,14 @@ class DOM {
     this.elem.append(node);
     return this;
   }
+
+  on(eventType, callback) {
+    this.elem.addEventListener(eventType, callback);
+  }
+
+  off(eventType, callback) {
+    this.elem.removeEventListener(eventType, callback);
+  }
 }
 
 export function $(selector) {
