@@ -13,6 +13,7 @@
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/preset-env": "^7.9.6",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
@@ -39,7 +40,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.7",
-    "normalize.css": "^8.0.1"
+    "@babel/polyfill": "^7.10.1",
+    "mdn-polyfills": "^5.20.0",
+    "normalize.css": "^8.0.1",
+    "svgxuse": "^1.2.6"
   }
 }
