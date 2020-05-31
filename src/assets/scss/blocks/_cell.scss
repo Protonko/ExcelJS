@@ -1,17 +1,15 @@
 .cell {
-    $padding-cell: 5px;
-
     line-height: 100%;
 
     width: $cell-width;
     min-width: $min-cell-width;
     height: 100%;
 
-    padding: rem($padding-cell);
+    padding: rem(5px);
 
     white-space: nowrap;
 
-    border-width: 0 rem(1px) rem(1px) 0;
+    border-width: 0 rem($border-width) rem($border-width) 0;
     border-style: solid;
     border-color: $border-color;
     outline: none;

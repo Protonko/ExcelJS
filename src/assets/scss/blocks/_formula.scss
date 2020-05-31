@@ -1,11 +1,8 @@
 .formula {
-    $padding-vertical: 3px;
-    $padding-horizontal: 5px;
-
     display: flex;
     align-items: center;
 
-    padding: rem($padding-vertical) 0;
+    padding: rem(3px) 0;
 
     &__info {
         font-size: rem(18px);
@@ -20,7 +17,7 @@
         width: 100%;
         height: 100%;
 
-        padding-left: rem($padding-horizontal);
+        padding-left: rem(5px);
 
         outline: none;
     }

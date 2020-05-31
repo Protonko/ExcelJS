@@ -1,4 +1,5 @@
 .header {
+    $border: rem($border-width) solid $border-color;
 
     &-dashboard {
         position: fixed;
@@ -26,9 +27,7 @@
         flex-grow: 1;
 
         &-icon {
-            $align-logo-padding: 7px;
-
-            padding-top: rem($align-logo-padding);
+            padding-top: rem(7px);
         }
     }
 
@@ -50,15 +49,11 @@
     }
 
     &__toolbar {
-        $border: rem(1px) solid $border-color;
-
         border-top: $border;
         border-bottom: $border;
     }
 
     &__formula {
-        $border: rem(1px) solid $border-color;
-
         min-width: $min-cell-width;
 
         border-bottom: $border;
