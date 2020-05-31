@@ -1,0 +1,13 @@
+.excel-formula {
+    $border: rem($border-width) solid $border-color;
+
+    min-width: $min-cell-width;
+
+    border-bottom: $border;
+
+    &__info {
+        padding-right: rem(5px);
+
+        border-right: $border;
+    }
+}

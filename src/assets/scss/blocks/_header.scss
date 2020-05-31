@@ -1,13 +1,11 @@
 .header {
-    $border: rem($border-width) solid $border-color;
-
     &-dashboard {
         position: fixed;
         top: 0;
         left: 0;
 
         width: 100%;
-        height: rem($dashboard-header-height);
+        height: rem($header-height);
 
         box-shadow: 0 rem(3px) rem(10px) rgba($black, .05);
     }
@@ -16,11 +14,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
 
-    &__top,
-    &__toolbar {
-        padding: rem(10px) 0;
+        height: rem($header-height);
     }
 
     &__logo {
@@ -28,40 +23,6 @@
 
         &-icon {
             padding-top: rem(7px);
-        }
-    }
-
-    &__input {
-        flex-grow: 10;
-    }
-
-    &__buttons {
-        display: flex;
-        flex-grow: 1;
-        justify-content: flex-end;
-
-        .button {
-
-            &:not(:last-child) {
-                margin-right: rem(10px);
-            }
-        }
-    }
-
-    &__toolbar {
-        border-top: $border;
-        border-bottom: $border;
-    }
-
-    &__formula {
-        min-width: $min-cell-width;
-
-        border-bottom: $border;
-
-        &-info {
-            padding-right: rem(5px);
-
-            border-right: $border;
         }
     }
 }
