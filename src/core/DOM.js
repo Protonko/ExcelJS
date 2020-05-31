@@ -21,7 +21,7 @@ class DOM {
 
   append(node) {
     if (node instanceof DOM) node = node.elem;
-    this.elem.append(node.elem);
+    this.elem.append(node);
     return this;
   }
 }
