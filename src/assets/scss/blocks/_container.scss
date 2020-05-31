@@ -1,10 +1,10 @@
 .container {
-  max-width: rem($container-width);
-  margin-right: auto;
-  margin-left: auto;
-
-  &-excel {
     max-width: rem($container-width);
-    margin-left: rem(20px);
-  }
+    margin-right: auto;
+    margin-left: auto;
+
+    &-excel {
+        max-width: rem($container-width);
+        margin-left: rem(20px);
+    }
 }

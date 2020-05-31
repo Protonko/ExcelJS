@@ -7,7 +7,7 @@
     min-width: rem($min-cell-width);
     height: 100%;
 
-    border-width: 0 rem(1px) rem(1px) 0;
+    border-width: 0 rem($border-width) rem($border-width) 0;
     border-style: solid;
     border-color: $border-color;
     background-color: $cell-info-color;
