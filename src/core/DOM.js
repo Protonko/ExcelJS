@@ -9,9 +9,8 @@ class DOM {
     if (typeof html === 'string') {
       this.elem.innerHTML = html;
       return this;
-    } else {
-      return this.elem.outerHTML.trim();
     }
+    return this.elem.outerHTML.trim();
   }
 
   clear() {
@@ -20,7 +19,8 @@ class DOM {
   }
 
   append(node) {
-    if (node instanceof DOM) node = node.elem;
+    node = (node instanceof DOM) ? node.elem : node;
+
     this.elem.append(node);
     return this;
   }

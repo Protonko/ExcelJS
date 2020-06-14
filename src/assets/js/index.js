@@ -2,6 +2,7 @@
 import 'svgxuse';
 import 'mdn-polyfills/Node.prototype.append';
 
+// components
 import {Excel} from '@/components/excel/Excel';
 import {Header} from '@/components/header/Header';
 import {Toolbar} from '@/components/toolbar/Toolbar';

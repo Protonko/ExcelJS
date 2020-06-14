@@ -21,10 +21,10 @@ export class Header extends ExcelComponent {
               <input class="input excel-header__input" placeholder="new table" type="text">
 
               <div class="buttons excel-header__buttons">
-                  <button class="button button--green button--tall">
+                  <button class="excel-header__button button button--green button--tall">
                       Create
                   </button>
-                  <button class="button button--red button--tall">
+                  <button class="excel-header__button button button--red button--tall">
                       Delete
                   </button>
               </div>
