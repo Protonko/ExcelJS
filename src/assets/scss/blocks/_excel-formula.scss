@@ -1,7 +1,7 @@
 .excel-formula {
     $border: rem($border-width) solid $border-color;
 
-    min-width: $min-cell-width;
+    min-width: rem($min-cell-width);
 
     border-bottom: $border;
 

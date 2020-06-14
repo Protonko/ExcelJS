@@ -9,7 +9,7 @@
     transition-timing-function: $transition-function;
 
     border: rem(1px) solid transparent;
-    border-radius: $border-radius-sm;
+    border-radius: rem($border-radius-sm);
     outline: none;
 
     &--green {

@@ -12,6 +12,7 @@
 
     &:focus {
         background-color: $white;
-        box-shadow: 0 rem(1px) rem(1px) 0 rgba($shadow, .3), 0 rem(1px) rem(3px) rem(1px) rgba($shadow, .15);
+        box-shadow: 0 rem(1px) rem(1px) 0 rgba($shadow, .3),
+                    0 rem(1px) rem(3px) rem(1px) rgba($shadow, .15);
     }
 }
