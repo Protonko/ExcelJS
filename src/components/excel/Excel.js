@@ -13,9 +13,6 @@ export class Excel {
       const $element = $.create('div', Component.className);
       const component = new Component($element); // create instance class
 
-      // DEBUG (Удалить по окончании разработки)
-      // if (component.name) window['c' + component.name] = component;
-
       $element.html(component.toHTML());
       $root.append($element);
 

@@ -1,7 +1,14 @@
 .row {
+    position: relative;
+
     display: flex;
 
     height: rem($row-height);
+    min-height: rem($row-height);
+
+    transition-property: height;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-function;
 
     &__info {
         display: flex;
@@ -21,5 +28,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    &__resize {
+        position: absolute;
+        z-index: $z-index-resizer;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: rem(3px);
+
+        cursor: row-resize;
+        transition-property: opacity;
+        transition-duration: $transition-duration;
+        transition-timing-function: $transition-function;
+
+        opacity: 0;
+        background-color: $cell-selected;
+
+        &:hover {
+            opacity: 1!important;
+        }
     }
 }
