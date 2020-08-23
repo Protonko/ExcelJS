@@ -1,4 +1,6 @@
 .column {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,8 +9,35 @@
     min-width: rem($min-cell-width);
     height: 100%;
 
+    transition-property: width;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-function;
+
     border-width: 0 rem($border-width) rem($border-width) 0;
     border-style: solid;
     border-color: $border-color;
     background-color: $cell-info-color;
+
+    &__resize {
+        position: absolute;
+        z-index: $z-index-resizer;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        width: rem(3px);
+        height: auto;
+
+        cursor: col-resize;
+        transition-property: height, opacity;
+        transition-duration: $transition-duration;
+        transition-timing-function: $transition-function;
+
+        opacity: 0;
+        background-color: $cell-selected;
+
+        &:hover {
+            opacity: 1!important;
+        }
+    }
 }

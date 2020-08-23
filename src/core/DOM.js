@@ -5,6 +5,10 @@ class DOM {
       : selector;
   }
 
+  get data() {
+    return this.elem.dataset;
+  }
+
   html(html) {
     if (typeof html === 'string') {
       this.elem.innerHTML = html;
@@ -31,6 +35,26 @@ class DOM {
 
   off(eventType, callback) {
     this.elem.removeEventListener(eventType, callback);
+  }
+
+  closest(selector) {
+    return $(this.elem.closest(selector));
+  }
+
+  find(selector) {
+    return this.elem.querySelectorAll(selector);
+  }
+
+  getCoords() {
+    return this.elem.getBoundingClientRect();
+  }
+
+  css(styles = {}) {
+    const stylesKeys = Object.keys(styles);
+
+    stylesKeys.forEach(key => (
+        this.elem.style[key] = styles[key]
+    ));
   }
 }
 
