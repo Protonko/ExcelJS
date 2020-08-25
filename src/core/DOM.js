@@ -73,6 +73,11 @@ class DOM {
     return this.data.id;
   }
 
+  focus() {
+    this.elem.focus();
+    return this;
+  }
+
   css(styles = {}) {
     const stylesKeys = Object.keys(styles);
 

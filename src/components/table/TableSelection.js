@@ -12,7 +12,9 @@ export class TableSelection {
     this.clear();
     this.group.push($elem);
     this.current = $elem;
-    $elem.addClass(CLASSES.selected);
+    $elem
+        .focus()
+        .addClass(CLASSES.selected);
   }
 
   clear() {
