@@ -7,7 +7,7 @@
     min-height: rem($row-height);
 
     transition-property: height;
-    transition-duration: $transition-duration;
+    transition-duration: $transition-duration-fast;
     transition-timing-function: $transition-function;
 
     &__info {

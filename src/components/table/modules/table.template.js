@@ -3,10 +3,18 @@ const ALPHABET_CODES = {
   endZ: 90,
 };
 
-function createCell(content, index) {
-  return `
-        <div class="cell" data-column-id="${index}" contenteditable>${content}</div>
+function createCell(row) {
+  return function(_, col) {
+    return `
+        <div 
+            class="cell" 
+            data-column-id="${col}"
+            data-id="${row}:${col}"
+            data-type="cell"
+            contenteditable>
+        </div>
     `;
+  };
 }
 
 function createCol(content, index) {
@@ -36,9 +44,7 @@ function createRow(content, index) {
 
 function toChar(_, index) { // _ - is placeholder for unused parameter
   const letterCode = ALPHABET_CODES.startA + index;
-  const letter = String.fromCharCode(letterCode);
-
-  return letter;
+  return String.fromCharCode(letterCode);
 }
 
 export function createTable(rowsCount = 10) {
@@ -50,15 +56,15 @@ export function createTable(rowsCount = 10) {
       .map(createCol)
       .join('');
 
-  const cells = new Array(columnsCount)
-      .fill('')
-      .map(createCell)
-      .join('');
-
   rows.push(createRow(columns));
 
-  for (let i = 0; i < rowsCount; i++) {
-    rows.push(createRow(cells, i + 1));
+  for (let row = 0; row < rowsCount; row++) {
+    const cells = new Array(columnsCount)
+        .fill('')
+        .map(createCell(row))
+        .join('');
+
+    rows.push(createRow(cells, row + 1));
   }
 
   return rows.join('');

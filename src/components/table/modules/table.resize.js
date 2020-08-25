@@ -13,6 +13,7 @@ export function resizeHandler($root, event) {
   const columnId = $parentCell.data.columnId;
   const type = $resizer.data.resize;
   const isColumn = type === 'column';
+
   let cellSize;
 
   $resizer.css({

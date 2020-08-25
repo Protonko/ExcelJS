@@ -22,6 +22,14 @@ class DOM {
     return this;
   }
 
+  addClass(className) {
+    this.elem.classList.add(className);
+  }
+
+  removeClass(className) {
+    this.elem.classList.remove(className);
+  }
+
   append(node) {
     node = (node instanceof DOM) ? node.elem : node;
 
@@ -45,8 +53,24 @@ class DOM {
     return this.elem.querySelectorAll(selector);
   }
 
+  findSingle(selector) {
+    return $(this.elem.querySelector(selector));
+  }
+
   getCoords() {
     return this.elem.getBoundingClientRect();
+  }
+
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':'); // '0:0' -> ['0', '0']
+
+      return {
+        row: +parsed[0],
+        col: +parsed[1],
+      };
+    }
+    return this.data.id;
   }
 
   css(styles = {}) {
