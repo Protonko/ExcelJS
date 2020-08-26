@@ -10,9 +10,11 @@ const ELEMENT_SELECTORS = {
 };
 
 export class Table extends ExcelComponent {
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
+      name: 'Table',
       listeners: ['mousedown', 'keydown'],
+      ...options,
     });
   }
   static className = 'excel-table';
@@ -27,6 +29,10 @@ export class Table extends ExcelComponent {
     const $cellFirst = this.$root.findSingle(ELEMENT_SELECTORS.cellFirst);
 
     this.selection.select($cellFirst);
+
+    this.observer.subscribe('ACTION_TMP', text => {
+      this.selection.current.text(text);
+    });
   }
 
   toHTML() {
