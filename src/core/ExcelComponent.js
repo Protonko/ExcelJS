@@ -4,8 +4,10 @@ export class ExcelComponent extends ListenerDOM {
   constructor($root, options = {}) {
     super($root, options.listeners);
     this.name = options.name;
+    this.store = options.store;
     this.observer = options.observer;
     this.unsubscibers = [];
+    this.storeSubscription = [];
 
     this.prepare();
   }
@@ -25,8 +27,16 @@ export class ExcelComponent extends ListenerDOM {
   }
 
   $on(event, fn) {
-    this.observer.subscribe(event, fn);
-    this.unsubscibers.forEach(unsubscribe => unsubscribe());
+    const unsubscribe = this.observer.subscribe(event, fn);
+    this.unsubscibers.push(unsubscribe);
+  }
+
+  $dispatch(action) {
+    this.store.dispatch(action);
+  }
+
+  $subscribe(fn) {
+    this.storeSubscription = this.store.subscribe(fn);
   }
 
   // initialization & add DOM listeners
@@ -37,5 +47,7 @@ export class ExcelComponent extends ListenerDOM {
   // remove component & clear DOM listeners
   destroy() {
     this.removeListenersDOM();
+    this.unsubscibers.forEach(unsubscribe => unsubscribe());
+    this.storeSubscription.unsubscribe();
   }
 }

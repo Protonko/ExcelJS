@@ -5,6 +5,7 @@ export class Excel {
   constructor(selector, options) { // ('', {})
     this.$elem = $(selector);
     this.components = options.components || [];
+    this.store = options.store;
     this.observer = new Observer();
   }
 
@@ -12,6 +13,7 @@ export class Excel {
     const $root = $.create('div', 'excel');
 
     const componentOptions = {
+      store: this.store,
       observer: this.observer,
     };
 
