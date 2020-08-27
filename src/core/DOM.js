@@ -18,7 +18,15 @@ class DOM {
   }
 
   text(text) {
-    this.elem.textContent = text;
+    if (typeof text === 'string') {
+      this.elem.textContent = text;
+      return this;
+    }
+    if (this.elem.tagName === 'INPUT') {
+      return this.elem.value.trim();
+    }
+
+    return this.elem.textContent.trim();
   }
 
   clear() {

@@ -1,5 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
+import {ACTIONS} from '@/actions';
 import {TableSelection} from './TableSelection';
 import {createTable} from './modules/table.template';
 import {resizeHandler} from './modules/table.resize';
@@ -13,7 +14,7 @@ export class Table extends ExcelComponent {
   constructor($root, options) {
     super($root, {
       name: 'Table',
-      listeners: ['mousedown', 'keydown'],
+      listeners: ['mousedown', 'keydown', 'input'],
       ...options,
     });
   }
@@ -30,13 +31,24 @@ export class Table extends ExcelComponent {
 
     this.selection.select($cellFirst);
 
-    this.observer.subscribe('ACTION_TMP', text => {
+    // add cell data to formula on initialise
+    this.selectCell($cellFirst);
+
+    this.$on(ACTIONS.formulaInput, text => {
       this.selection.current.text(text);
+    });
+    this.$on(ACTIONS.formulaDone, () => {
+      this.selection.current.focus();
     });
   }
 
-  toHTML() {
-    return createTable();
+  selectCell($cell) {
+    this.selection.select($cell);
+    this.$observe(ACTIONS.tableSelect, $cell);
+  }
+
+  onInput(event) {
+    this.$observe(ACTIONS.tableInput, $(event.target));
   }
 
   onMousedown(event) {
@@ -74,7 +86,12 @@ export class Table extends ExcelComponent {
       const id = this.selection.current.id(true);
       const $nextCell = this.$root.findSingle(nextSelector(key, id));
 
-      this.selection.select($nextCell);
+      this.selectCell($nextCell);
+      this.$observe(ACTIONS.tableSelect, $nextCell);
     }
+  }
+
+  toHTML() {
+    return createTable();
   }
 }
