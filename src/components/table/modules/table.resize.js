@@ -5,10 +5,14 @@ const ELEMENT_SELECTORS = {
 };
 
 export function resizeHandler($root, event) {
+  const HEIGHT_SCREEN = document.body.offsetHeight;
+  const WIDTH_SCREEN = document.body.offsetWidth;
+
+  console.log(WIDTH_SCREEN);
+
   const $resizer = $(event.target);
   const $parentCell = $resizer.closest(ELEMENT_SELECTORS.resizable);
 
-  const HEIGHT_SCREEN = document.body.offsetHeight;
   const coords = $parentCell.getCoords();
   const columnId = $parentCell.data.columnId;
   const type = $resizer.data.resize;
@@ -16,8 +20,11 @@ export function resizeHandler($root, event) {
 
   let cellSize;
 
+  console.log(isColumn);
+
   $resizer.css({
     bottom: isColumn && -HEIGHT_SCREEN + 'px',
+    right: !isColumn && -WIDTH_SCREEN + 'px',
     opacity: 1,
   });
 

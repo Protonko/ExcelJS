@@ -1,6 +1,8 @@
 .cell {
     line-height: 1;
 
+    z-index: $z-index-cell;
+
     width: $cell-width;
     min-width: $min-cell-width;
     height: 100%;

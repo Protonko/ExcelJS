@@ -11,6 +11,8 @@
     transition-timing-function: $transition-function;
 
     &__info {
+        position: relative;
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -35,8 +37,9 @@
         z-index: $z-index-resizer;
         right: 0;
         bottom: 0;
+        left: 0;
 
-        width: 100%;
+        width: auto;
         height: rem(3px);
 
         cursor: row-resize;
