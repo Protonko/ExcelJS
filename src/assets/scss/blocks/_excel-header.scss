@@ -15,8 +15,14 @@
         }
     }
 
-    &__input {
+    &__title {
+        $font-size: 20px;
+
+        font-size: rem($font-size);
+        line-height: (22px / $font-size);
+
         flex-grow: 10;
+        padding: rem(5px) rem(10px);
     }
 
     &__buttons {

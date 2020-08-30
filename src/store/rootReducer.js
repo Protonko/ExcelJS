@@ -1,4 +1,10 @@
-import {TABLE_RESIZE, CHANGE_TEXT, CHANGE_STYLES, APPLY_STYLE} from './types';
+import {
+  TABLE_RESIZE,
+  CHANGE_TEXT,
+  CHANGE_STYLES,
+  APPLY_STYLE,
+  CHANGE_TITLE,
+} from './types';
 import {buildReducers} from '@core/utils';
 
 const reducers = {
@@ -41,6 +47,10 @@ const reducers = {
       [field]: val,
       currentStyles: {...state.currentStyles, ...value},
     };
+  },
+
+  [CHANGE_TITLE](state, action) {
+    return {...state, title: action.data};
   },
 };
 

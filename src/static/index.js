@@ -4,3 +4,5 @@ export const DEFAULT_STYLES = {
   textAlign: 'left',
   textDecoration: 'none',
 };
+
+export const DEFAULT_TITLE = 'New table';

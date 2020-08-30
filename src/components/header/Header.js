@@ -1,15 +1,27 @@
 import {ExcelComponent} from '@core/ExcelComponent';
+import {$} from '@core/DOM';
+import {changeTitle} from '@store/actions';
+import {DEFAULT_TITLE} from '@static';
 
 export class Header extends ExcelComponent {
   constructor($root, options) {
     super($root, {
       name: 'Header',
+      listeners: ['input'],
       ...options,
     });
   }
+
   static className = 'excel-header';
 
+  onInput(event) {
+    const $input = $(event.target);
+    this.$dispatch(changeTitle($input.text()));
+  }
+
   toHTML() {
+    const title = this.store.getState().title ?? DEFAULT_TITLE;
+
     return `
       <div class="container-excel">
           <div class="excel-header__wrapper">
@@ -24,7 +36,9 @@ export class Header extends ExcelComponent {
                   </span>
               </div>
 
-              <input class="input excel-header__input" placeholder="new table" type="text">
+              <div class="excel-header__title" type="text" contenteditable>
+                ${title}
+              </div>
 
               <div class="buttons excel-header__buttons">
                   <button class="excel-header__button button button--green button--tall">
