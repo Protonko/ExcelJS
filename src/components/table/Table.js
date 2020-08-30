@@ -1,6 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
-import {ACTIONS} from '@/actions';
+import {OBSERVER_ACTIONS} from '@observer-actions';
 import * as actions from '@store/actions';
 import {TableSelection} from './TableSelection';
 import {createTable} from './modules/table.template';
@@ -35,18 +35,21 @@ export class Table extends ExcelComponent {
     // add cell data to formula on initialise
     this.selectCell($cellFirst);
 
-    this.$on(ACTIONS.formulaInput, text => {
+    this.$on(OBSERVER_ACTIONS.formulaInput, text => {
       this.selection.current.text(text);
       this.updateTextInStore(text);
     });
-    this.$on(ACTIONS.formulaDone, () => {
+    this.$on(OBSERVER_ACTIONS.formulaDone, () => {
       this.selection.current.focus();
+    });
+    this.$on(OBSERVER_ACTIONS.toolbarApplyStyle, style => {
+      this.selection.applyStyle(style);
     });
   }
 
   selectCell($cell) {
     this.selection.select($cell);
-    this.$observe(ACTIONS.tableSelect, $cell);
+    this.$observe(OBSERVER_ACTIONS.tableSelect, $cell);
   }
 
   updateTextInStore(text) {
@@ -109,7 +112,7 @@ export class Table extends ExcelComponent {
       const $nextCell = this.$root.findSingle(nextSelector(key, id));
 
       this.selectCell($nextCell);
-      this.$observe(ACTIONS.tableSelect, $nextCell);
+      this.$observe(OBSERVER_ACTIONS.tableSelect, $nextCell);
     }
   }
 

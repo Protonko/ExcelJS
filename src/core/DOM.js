@@ -97,6 +97,14 @@ class DOM {
         this.elem.style[key] = styles[key]
     ));
   }
+
+  getStyles(styles = []) {
+    return styles.reduce((acc, style) => {
+      acc[style] = this.elem.style[style];
+
+      return acc;
+    }, {});
+  }
 }
 
 export function $(selector) {

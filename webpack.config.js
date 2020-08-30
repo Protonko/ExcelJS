@@ -46,6 +46,8 @@ module.exports = {
             '@': path.resolve(__dirname, 'src'),
             '@core': path.resolve(__dirname, 'src/core'),
             '@store': path.resolve(__dirname, 'src/store'),
+            '@static': path.resolve(__dirname, 'src/static'),
+            '@observer-actions': path.resolve(__dirname, 'src/observer-actions'),
             '@components': path.resolve(__dirname, 'src/components'),
             '@assets': path.resolve(__dirname, 'src/assets'),
         },

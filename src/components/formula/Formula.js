@@ -1,6 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
-import {ACTIONS} from '@/actions';
+import {OBSERVER_ACTIONS} from '@observer-actions';
 
 const ELEMENT_SELECTORS = {
   formula: '#formula',
@@ -23,7 +23,7 @@ export class Formula extends ExcelComponent {
 
     this.$formula = this.$root.findSingle(ELEMENT_SELECTORS.formula);
 
-    this.$on(ACTIONS.tableSelect, $cell => {
+    this.$on(OBSERVER_ACTIONS.tableSelect, $cell => {
       this.$formula.text($cell.text());
     });
   }
@@ -36,7 +36,7 @@ export class Formula extends ExcelComponent {
     const $target = $(event.target);
     const text = $target.text();
 
-    this.$observe(ACTIONS.formulaInput, text);
+    this.$observe(OBSERVER_ACTIONS.formulaInput, text);
   }
 
   onKeydown(event) {
@@ -45,7 +45,7 @@ export class Formula extends ExcelComponent {
     if (KEYS.includes(event.key)) {
       event.preventDefault();
 
-      this.$observe(ACTIONS.formulaDone);
+      this.$observe(OBSERVER_ACTIONS.formulaDone);
     }
   }
 

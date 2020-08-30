@@ -46,9 +46,12 @@
     }
 
     &--icon {
-        line-height: 100%;
+        line-height: 1;
 
-        padding: rem(5px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: rem(2px);
 
         background-color: transparent;
 

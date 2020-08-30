@@ -12,7 +12,7 @@ export class ExcelComponent extends ListenerDOM {
     this.prepare();
   }
 
-  // actions before initialization
+  // observer-actions before initialization
   prepare() {}
 
   // Return component template

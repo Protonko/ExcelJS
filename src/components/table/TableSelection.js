@@ -27,4 +27,8 @@ export class TableSelection {
     this.group = $group;
     this.group.forEach($elem => $elem.addClass(CLASSES.selected));
   }
+
+  applyStyle(style) {
+    this.group.forEach($elem => $elem.css(style));
+  }
 }
