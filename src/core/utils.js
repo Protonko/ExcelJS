@@ -28,3 +28,10 @@ export function buildReducers(reducers, defaultState = {}) {
     return reducers[action.type] ? reducers[action.type](state, action) : state;
   };
 }
+
+export function isEqual(a, b) {
+  if (typeof a === 'object' && typeof b === 'object') {
+    return JSON.stringify(a) === JSON.stringify(b);
+  }
+  return a === b;
+}

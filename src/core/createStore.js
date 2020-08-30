@@ -17,15 +17,22 @@ export function createStore(rootReducer, initialState = {}) {
     },
 
     dispatch(action) {
-      console.log('%c action', ACTION_STYLE, action);
-      console.log('%c next state:', NEXT_STATE_STYLE, state);
+      if (process.env.NODE_ENV === 'development') {
+        this.logger(action, state);
+      }
 
       state = rootReducer(state, action);
       listeners.forEach(listener => listener(state));
     },
 
     getState() {
-      return state;
+      // Avoiding mutation
+      return JSON.parse(JSON.stringify(state));
+    },
+
+    logger(action, state) {
+      console.log('%c action', ACTION_STYLE, action);
+      console.log('%c next state:', NEXT_STATE_STYLE, state);
     },
   };
 }

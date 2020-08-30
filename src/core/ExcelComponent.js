@@ -6,8 +6,8 @@ export class ExcelComponent extends ListenerDOM {
     this.name = options.name;
     this.store = options.store;
     this.observer = options.observer;
-    this.unsubscibers = [];
-    this.storeSubscription = [];
+    this.subscribe = options.subscribe ?? [];
+    this.unsubscribers = [];
 
     this.prepare();
   }
@@ -20,23 +20,25 @@ export class ExcelComponent extends ListenerDOM {
     return '';
   }
 
+  storeChanged() {}
+
+  isWatching(key) {
+    return this.subscribe.includes(key);
+  }
+
   // Facade pattern
   $observe(event, ...args) {
     const unsubscribe = this.observer.dispatch(event, ...args);
-    this.unsubscibers.push(unsubscribe);
+    this.unsubscribers.push(unsubscribe);
   }
 
   $on(event, fn) {
     const unsubscribe = this.observer.subscribe(event, fn);
-    this.unsubscibers.push(unsubscribe);
+    this.unsubscribers.push(unsubscribe);
   }
 
   $dispatch(action) {
     this.store.dispatch(action);
-  }
-
-  $subscribe(fn) {
-    this.storeSubscription = this.store.subscribe(fn);
   }
 
   // initialization & add DOM listeners
@@ -47,7 +49,6 @@ export class ExcelComponent extends ListenerDOM {
   // remove component & clear DOM listeners
   destroy() {
     this.removeListenersDOM();
-    this.unsubscibers.forEach(unsubscribe => unsubscribe());
-    this.storeSubscription.unsubscribe();
+    this.unsubscribers.forEach(unsubscribe => unsubscribe());
   }
 }
