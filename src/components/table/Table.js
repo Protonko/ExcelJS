@@ -1,5 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
+import {DEFAULT_STYLES} from '@static/index';
 import {OBSERVER_ACTIONS} from '@observer-actions';
 import * as actions from '@store/actions';
 import {TableSelection} from './TableSelection';
@@ -42,14 +43,21 @@ export class Table extends ExcelComponent {
     this.$on(OBSERVER_ACTIONS.formulaDone, () => {
       this.selection.current.focus();
     });
-    this.$on(OBSERVER_ACTIONS.toolbarApplyStyle, style => {
-      this.selection.applyStyle(style);
+    this.$on(OBSERVER_ACTIONS.toolbarApplyStyle, value => {
+      this.selection.applyStyle(value);
+      this.$dispatch(actions.applyStyle({
+        value,
+        identifiers: this.selection.selectedIdentifiers,
+      }));
     });
   }
 
   selectCell($cell) {
+    const styles = $cell.getStyles(Object.keys(DEFAULT_STYLES));
+
     this.selection.select($cell);
     this.$observe(OBSERVER_ACTIONS.tableSelect, $cell);
+    this.$dispatch(actions.changeStyles(styles));
   }
 
   updateTextInStore(text) {

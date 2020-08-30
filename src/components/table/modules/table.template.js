@@ -1,3 +1,6 @@
+import {toInlineStyles} from '@core/utils';
+import {DEFAULT_STYLES} from '@static';
+
 const ALPHABET_CODES = {
   startA: 65,
   endZ: 90,
@@ -10,6 +13,10 @@ function createCell(row, state) {
     const width = getWidth(state.colState, column);
     const id = `${row}:${column}`;
     const content = state.dataState[id] ?? '';
+    const styles = toInlineStyles({
+      ...DEFAULT_STYLES,
+      ...state.stylesState[id],
+    });
 
     return `
         <div 
@@ -18,7 +25,7 @@ function createCell(row, state) {
           data-id="${id}"
           data-type="cell"
           contenteditable
-          style="width: ${width}"
+          style="${styles}; width: ${width}"
         >
             ${content}
         </div>

@@ -8,6 +8,10 @@ export class TableSelection {
     this.current = null;
   }
 
+  get selectedIdentifiers() {
+    return this.group.map($elem => $elem.id());
+  }
+
   select($elem) { // $elem instanceof DOM === true
     this.clear();
     this.group.push($elem);
