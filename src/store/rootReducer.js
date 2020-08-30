@@ -1,20 +1,25 @@
-import {TABLE_RESIZE} from './types';
+import {TABLE_RESIZE, CHANGE_TEXT} from './types';
+import {buildReducers} from '@core/utils';
 
-export function rootReducer(state, action) {
-  let prevState;
-  let field;
+const reducers = {
+  [TABLE_RESIZE](state, action) {
+    const {type, id, cellSize} = action.data;
+    const field = type === 'column' ? 'colState' : 'rowState';
+    const prevState = state[field] ?? {};
 
-  switch (action.type) {
-    case TABLE_RESIZE:
-      // eslint-disable-next-line no-case-declarations
-      const {type, id, cellSize} = action.data;
+    prevState[id] = cellSize;
 
-      console.log(action.data);
+    return {...state, [field]: prevState}; // id, value
+  },
 
-      field = type === 'column' ? 'colState' : 'rowState';
-      prevState = state[field] ?? {};
-      prevState[id] = cellSize;
-      return {...state, [field]: prevState}; // id, value
-    default: return state;
-  }
-}
+  [CHANGE_TEXT](state, action) {
+    const {id, text} = action.data;
+    const prevState = state['dataState'] ?? {};
+
+    prevState[id] = action.data.text;
+
+    return {...state, currentText: text, dataState: prevState};
+  },
+};
+
+  export const rootReducer = buildReducers(reducers);

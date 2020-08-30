@@ -37,6 +37,7 @@ export class Table extends ExcelComponent {
 
     this.$on(ACTIONS.formulaInput, text => {
       this.selection.current.text(text);
+      this.updateTextInStore(text);
     });
     this.$on(ACTIONS.formulaDone, () => {
       this.selection.current.focus();
@@ -48,8 +49,11 @@ export class Table extends ExcelComponent {
     this.$observe(ACTIONS.tableSelect, $cell);
   }
 
-  onInput(event) {
-    this.$observe(ACTIONS.tableInput, $(event.target));
+  updateTextInStore(text) {
+    this.$dispatch(actions.changeText({
+      id: this.selection.current.id(),
+      text,
+    }));
   }
 
   async resizeTable(event) {
@@ -59,6 +63,13 @@ export class Table extends ExcelComponent {
     } catch (error) {
       console.warn('Resize error', error.message);
     }
+  }
+
+  onInput(event) {
+    const $input = $(event.target);
+    const text = $input.text();
+
+    this.updateTextInStore(text);
   }
 
   onMousedown(event) {

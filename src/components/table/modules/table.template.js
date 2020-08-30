@@ -7,17 +7,20 @@ const DEFAULT_HEIGHT = '24px';
 
 function createCell(row, state) {
   return function(_, column) {
-    const width = getWidth(state, column);
+    const width = getWidth(state.colState, column);
+    const id = `${row}:${column}`;
+    const content = state.dataState[id] ?? '';
 
     return `
         <div 
           class="cell" 
           data-column-id="${column}"
-          data-id="${row}:${column}"
+          data-id="${id}"
           data-type="cell"
           contenteditable
           style="width: ${width}"
         >
+            ${content}
         </div>
     `;
   };
@@ -95,7 +98,7 @@ export function createTable(rowsCount = 10, state = {}) {
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(columnsCount)
         .fill('')
-        .map(createCell(row, state.colState))
+        .map(createCell(row, state))
         .join('');
 
     rows.push(createRow(cells, row + 1, state.rowState));

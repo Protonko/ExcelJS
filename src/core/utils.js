@@ -22,3 +22,9 @@ export function storage(key, data) {
     return JSON.parse(localStorage.getItem(key));
   }
 }
+
+export function buildReducers(reducers, defaultState = {}) {
+  return function(state = defaultState, action) {
+    return reducers[action.type] ? reducers[action.type](state, action) : state;
+  };
+}
