@@ -8,11 +8,17 @@ import {Header} from '@components/header/Header';
 import {Toolbar} from '@components/toolbar/Toolbar';
 import {Formula} from '@components/formula/Formula';
 import {Table} from '@components/table/Table';
+
+// store
 import {createStore} from '@core/createStore';
 import {rootReducer} from '@store/rootReducer';
+import {storage} from '@core/utils';
+import {initialState} from '@store/inititalState';
 
-const store = createStore(rootReducer, {
-  tableTitle: 'Excel table',
+const store = createStore(rootReducer, initialState);
+
+store.subscribe(state => {
+  storage('excel-state', state);
 });
 
 const excel = new Excel('#app', {

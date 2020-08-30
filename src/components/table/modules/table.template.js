@@ -2,37 +2,52 @@ const ALPHABET_CODES = {
   startA: 65,
   endZ: 90,
 };
+const DEFAULT_WIDTH = '120px';
+const DEFAULT_HEIGHT = '24px';
 
-function createCell(row) {
-  return function(_, col) {
+function createCell(row, state) {
+  return function(_, column) {
+    const width = getWidth(state, column);
+
     return `
         <div 
-            class="cell" 
-            data-column-id="${col}"
-            data-id="${row}:${col}"
-            data-type="cell"
-            contenteditable>
+          class="cell" 
+          data-column-id="${column}"
+          data-id="${row}:${column}"
+          data-type="cell"
+          contenteditable
+          style="width: ${width}"
+        >
         </div>
     `;
   };
 }
 
-function createCol(content, index) {
+function createCol({content, index, width}) {
   return `
-        <div class="column" data-type="resizable" data-column-id="${index}">
+        <div 
+          class="column" 
+          data-type="resizable" 
+          data-column-id="${index}" 
+          style="width: ${width}"
+        >
             ${content}
             <div class="column__resize" data-resize="column"></div>
         </div>
     `;
 }
 
-function createRow(content, index) {
-  const resize = index
-      ? '<div class="row__resize" data-resize="row"></div>'
-      : '';
+function createRow(content, index, state) {
+  const resize = index ? `<div class="row__resize" data-resize="row"></div>` : '';
+  const height = getHeight(state, index);
 
   return `
-        <div class="row" data-type="resizable">
+        <div 
+          class="row" 
+          data-type="resizable" 
+          data-row-id="${index}"
+          style="height: ${height}"
+        >
             <div class="row__info">
                 ${index ? index : ''}
                 ${resize}
@@ -47,24 +62,43 @@ function toChar(_, index) { // _ - is placeholder for unused parameter
   return String.fromCharCode(letterCode);
 }
 
-export function createTable(rowsCount = 10) {
+function getWidth(state, index) {
+  return state[index] ?? DEFAULT_WIDTH;
+}
+
+function getHeight(state, index) {
+  return state[index] ?? DEFAULT_HEIGHT;
+}
+
+function withWidthFrom(state) {
+  return function(content, index) {
+    return {
+      content,
+      index,
+      width: getWidth(state.colState, index),
+    };
+  };
+}
+
+export function createTable(rowsCount = 10, state = {}) {
   const columnsCount = ALPHABET_CODES.endZ - ALPHABET_CODES.startA + 1;
   const rows = [];
   const columns = new Array(columnsCount)
       .fill('')
       .map(toChar)
+      .map(withWidthFrom(state))
       .map(createCol)
       .join('');
 
-  rows.push(createRow(columns));
+  rows.push(createRow(columns, null, {}));
 
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(columnsCount)
         .fill('')
-        .map(createCell(row))
+        .map(createCell(row, state.colState))
         .join('');
 
-    rows.push(createRow(cells, row + 1));
+    rows.push(createRow(cells, row + 1, state.rowState));
   }
 
   return rows.join('');

@@ -1,6 +1,7 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
 import {ACTIONS} from '@/actions';
+import * as actions from '@store/actions';
 import {TableSelection} from './TableSelection';
 import {createTable} from './modules/table.template';
 import {resizeHandler} from './modules/table.resize';
@@ -51,9 +52,18 @@ export class Table extends ExcelComponent {
     this.$observe(ACTIONS.tableInput, $(event.target));
   }
 
+  async resizeTable(event) {
+    try {
+      const data = await resizeHandler(this.$root, event);
+      this.$dispatch(actions.tableResize(data));
+    } catch (error) {
+      console.warn('Resize error', error.message);
+    }
+  }
+
   onMousedown(event) {
     if (shouldResize(event)) {
-      resizeHandler(this.$root, event);
+      this.resizeTable(event);
     } else if (isCell(event)) {
       const $target = $(event.target);
 
@@ -92,6 +102,6 @@ export class Table extends ExcelComponent {
   }
 
   toHTML() {
-    return createTable();
+    return createTable(20, this.store.getState());
   }
 }

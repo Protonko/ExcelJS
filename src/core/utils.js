@@ -14,3 +14,11 @@ export function range(start, end) { // (0, 3) -> [0, 1, 2, 3]
       .fill('')
       .map((_, index) => start + index);
 }
+
+export function storage(key, data) {
+  if (data) {
+    localStorage.setItem(key, JSON.stringify(data));
+  } else {
+    return JSON.parse(localStorage.getItem(key));
+  }
+}
