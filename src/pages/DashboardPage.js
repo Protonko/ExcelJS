@@ -1,8 +1,12 @@
 import {Page} from '@core/Page';
 import {$} from '@core/DOM';
+import {generateId} from '@core/utils';
+import {createRecordsTable} from '@pages/dashboard.funstions';
 
 export class DashboardPage extends Page {
   getRoot() {
+    const newTableId = generateId();
+
     return $.create('div', 'dashboard').html(
       `
       <header class="header header-dashboard">
@@ -30,7 +34,7 @@ export class DashboardPage extends Page {
                 <div class="container">
                     <ul class="dashboard__items">
                         <li class="dashboard__item">
-                            <a href="#" class="card">
+                            <a href="#excel/${newTableId}" class="card">
                                 <span>
                                     <svg class="icon--add">
                                         <use xlink:href="icons/icons.svg#icon-add"></use>
@@ -44,36 +48,7 @@ export class DashboardPage extends Page {
 
             <section class="dashboard__list">
                 <div class="container">
-                    <div class="dashboard__list-header">
-                        <h4 class="dashboard__list-header-text">
-                            Название
-                        </h4>
-                        <h4 class="dashboard__list-header-text">
-                            Дата открытия
-                        </h4>
-                    </div>
-
-                    <div class="dashboard__list-body">
-                        <div class="info">
-                            <p class="info__text">
-                                <a href="#" class="info__text-link">Таблица 1</a>
-                            </p>
-
-                            <p class="info__text">
-                                25.05.2020
-                            </p>
-                        </div>
-
-                        <div class="info">
-                            <p class="info__text">
-                                <a href="#" class="info__text-link">Таблица 1</a>
-                            </p>
-
-                            <p class="info__text">
-                                25.05.2020
-                            </p>
-                        </div>
-                    </div>
+                    ${createRecordsTable()}
                 </div>
             </section>
         </main>
