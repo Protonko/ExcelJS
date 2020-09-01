@@ -1,4 +1,4 @@
-import {toInlineStyles} from '@core/utils';
+import {toInlineStyles, parse} from '@core/utils';
 import {DEFAULT_STYLES} from '@static';
 
 const ALPHABET_CODES = {
@@ -24,10 +24,11 @@ function createCell(row, state) {
           data-column-id="${column}"
           data-id="${id}"
           data-type="cell"
+          data-value="${content}"
           contenteditable
           style="${styles}; width: ${width}"
         >
-            ${content}
+            ${parse(content)}
         </div>
     `;
   };

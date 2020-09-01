@@ -1,5 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
+import {parse} from '@core/utils';
 import {DEFAULT_STYLES} from '@static/index';
 import {OBSERVER_ACTIONS} from '@observer-actions';
 import * as actions from '@store/actions';
@@ -37,7 +38,9 @@ export class Table extends ExcelComponent {
     this.selectCell($cellFirst);
 
     this.$on(OBSERVER_ACTIONS.formulaInput, text => {
-      this.selection.current.text(text);
+      this.selection.current
+        .attr('data-value', text)
+        .text(parse(text));
       this.updateTextInStore(text);
     });
     this.$on(OBSERVER_ACTIONS.formulaDone, () => {

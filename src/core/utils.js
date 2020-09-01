@@ -59,3 +59,16 @@ export function debounce(fn, wait) {
     timeout = setTimeout(later, wait);
   };
 }
+
+export function parse(value = '') {
+  if (value.startsWith('=')) {
+    try {
+      return eval(value.slice(1));
+    } catch (error) {
+      console.warn(error.message);
+      return value;
+    }
+  }
+
+  return value;
+}

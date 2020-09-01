@@ -18,7 +18,7 @@ class DOM {
   }
 
   text(text) {
-    if (typeof text === 'string') {
+    if (typeof text !== 'undefined') {
       this.elem.textContent = text;
       return this;
     }
@@ -104,6 +104,17 @@ class DOM {
 
       return acc;
     }, {});
+  }
+
+  attr(name, value) {
+    if (value) {
+      this.elem.setAttribute(name, value);
+      return this;
+    } else if (value === '') {
+      return this;
+    } else {
+      return this.elem.getAttribute(name);
+    }
   }
 }
 
