@@ -11,12 +11,4 @@ const defaultState = {
   currentStyles: DEFAULT_STYLES,
 };
 
-// function normalize(state) {
-//   return {
-//     ...state,
-//     currentStyles: DEFAULT_STYLES,
-//     currentText: '',
-//   };
-// }
-
 export const initialState = storage('excel-state') ?? defaultState;

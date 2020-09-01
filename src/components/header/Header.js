@@ -2,6 +2,9 @@ import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/DOM';
 import {changeTitle} from '@store/actions';
 import {DEFAULT_TITLE} from '@static';
+import {debounce} from '@core/utils';
+
+const DELAY = 300;
 
 export class Header extends ExcelComponent {
   constructor($root, options) {
@@ -13,6 +16,10 @@ export class Header extends ExcelComponent {
   }
 
   static className = 'excel-header';
+
+  prepare() {
+    this.onInput = debounce(this.onInput.bind(this), DELAY);
+  }
 
   onInput(event) {
     const $input = $(event.target);
