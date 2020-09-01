@@ -1,5 +1,7 @@
 .dashboard {
-    margin-top: rem($header-height);
+    &__wrapper {
+        margin-top: rem($header-height);
+    }
 
     &__new {
         padding: rem(20px) 0;

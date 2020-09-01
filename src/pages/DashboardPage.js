@@ -1,17 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Excel JS Native</title>
-</head>
-<body>
-<div id="app">
-    <div class="dashboard">
-        <header class="header header-dashboard">
+import {Page} from '@core/Page';
+import {$} from '@core/DOM';
+
+export class DashboardPage extends Page {
+  getRoot() {
+    return $.create('div', 'dashboard').html(
+      `
+      <header class="header header-dashboard">
             <div class="container">
                 <div class="header__wrapper">
                     <div class="logo header__logo">
@@ -83,7 +77,7 @@
                 </div>
             </section>
         </main>
-    </div>
-</div>
-</body>
-</html>
+`
+    );
+  }
+}
