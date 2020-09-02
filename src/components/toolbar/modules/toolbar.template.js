@@ -10,7 +10,7 @@ function createButton(button) {
           ${meta}
         >
             <svg class="toolbar__button-icon icon--toolbar">
-                <use xlink:href="/icons/icons.svg#icon-${button.icon}"></use>
+                <use xlink:href="icons/icons.svg#icon-${button.icon}"></use>
             </svg>
        </button>
     </li>

@@ -56,7 +56,7 @@ export class Header extends ExcelComponent {
               <div class="logo excel-header__logo">
                   <span class="logo__icon excel-header__logo-icon">
                       <svg class="icon--logo">
-                          <use xlink:href="/icons/icons.svg#icon-logo"></use>
+                          <use xlink:href="icons/icons.svg#icon-logo"></use>
                       </svg>
                   </span>
                   <span class="logo__text">

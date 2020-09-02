@@ -15,7 +15,7 @@ export class DashboardPage extends Page {
                     <div class="logo header__logo">
                         <span class="logo__icon header__logo-icon">
                             <svg class="icon--logo">
-                                <use xlink:href="/icons/icons.svg#icon-logo"></use>
+                                <use xlink:href="icons/icons.svg#icon-logo"></use>
                             </svg>
                         </span>
                         <span class="logo__text">
