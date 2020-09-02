@@ -1,7 +1,7 @@
 import {Page} from '@core/Page';
 import {$} from '@core/DOM';
 import {generateId} from '@core/utils';
-import {createRecordsTable} from '@pages/dashboard.funstions';
+import {createRecordsTable} from './modules/dashboard.template';
 
 export class DashboardPage extends Page {
   getRoot() {

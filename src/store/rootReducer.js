@@ -4,6 +4,7 @@ import {
   CHANGE_STYLES,
   APPLY_STYLE,
   CHANGE_TITLE,
+  UPDATE_DATE,
 } from './types';
 import {buildReducers} from '@core/utils';
 
@@ -30,7 +31,10 @@ const reducers = {
   },
 
   [CHANGE_STYLES](state, action) {
-    return {...state, currentStyles: action.data};
+    return {
+      ...state,
+      currentStyles: action.data,
+    };
   },
 
   [APPLY_STYLE](state, action) {
@@ -45,12 +49,25 @@ const reducers = {
     return {
       ...state,
       [field]: val,
-      currentStyles: {...state.currentStyles, ...value},
+      currentStyles: {
+        ...state.currentStyles,
+        ...value,
+      },
     };
   },
 
   [CHANGE_TITLE](state, action) {
-    return {...state, title: action.data};
+    return {
+      ...state,
+      title: action.data,
+    };
+  },
+
+  [UPDATE_DATE](state) {
+    return {
+      ...state,
+      date: new Date().toJSON(),
+    };
   },
 };
 

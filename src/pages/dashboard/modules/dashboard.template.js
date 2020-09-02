@@ -1,31 +1,21 @@
-function createTableTemplate() {
+import {getAllKeys} from '@pages/dashboard/modules/dashboard.functions';
+import {storage} from '@core/utils';
+
+function createTableTemplate(key) {
+  const model = storage(key);
+  const id = key.split(':')[1];
+
   return `
     <div class="info">
         <p class="info__text">
-            <a href="#" class="info__text-link">Таблица 1</a>
+            <a href="#excel/${id}" class="info__text-link">${model.title}</a>
         </p>
   
         <p class="info__text">
-            25.05.2020
+            ${new Date(model.date).toLocaleDateString()}
         </p>
     </div>
   `;
-}
-
-function getAllKeys() {
-  const keys = [];
-
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-
-    if (!key.includes('excel')) {
-      continue;
-    }
-
-    keys.push(key);
-  }
-
-  return keys;
 }
 
 export function createRecordsTable() {

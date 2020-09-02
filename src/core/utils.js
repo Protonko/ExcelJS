@@ -23,6 +23,10 @@ export function storage(key, data) {
   }
 }
 
+export function removeStorage(key) {
+  localStorage.removeItem(key);
+}
+
 export function buildReducers(reducers, defaultState = {}) {
   return function(state = defaultState, action) {
     return reducers[action.type] ? reducers[action.type](state, action) : state;
@@ -76,8 +80,7 @@ export function parse(value = '') {
 export function generateId() {
   const id = `_${Math.random()
     .toString(36)
-    .substr(2, 9)}
-    -${Date.now()}`;
+    .substr(2, 9)}`;
 
   return id;
 }
