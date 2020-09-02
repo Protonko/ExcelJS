@@ -1,4 +1,6 @@
 .dashboard {
+    min-width: rem(780px);
+
     &__wrapper {
         margin-top: rem($header-height);
     }

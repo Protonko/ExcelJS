@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -78,6 +79,9 @@ module.exports = {
         }),
         new SpriteLoaderPlugin({
             plainSprite: true,
+        }),
+        new webpack.DefinePlugin({
+            'IS_DEV': JSON.stringify(process.env.NODE_ENV === 'development'),
         }),
     ],
     module: {

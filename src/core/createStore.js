@@ -17,7 +17,7 @@ export function createStore(rootReducer, initialState = {}) {
     },
 
     dispatch(action) {
-      if (process.env.NODE_ENV === 'development') {
+      if (IS_DEV) {
         this.logger(action, state);
       }
 

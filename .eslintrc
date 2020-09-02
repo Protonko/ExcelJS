@@ -12,6 +12,9 @@
     "max-len": "off",
     "operator-linebreak": "off"
   },
+  "globals": {
+    "IS_DEV": true
+  },
   "extends": [
     "eslint:recommended",
     "google"

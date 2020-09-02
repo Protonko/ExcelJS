@@ -1,4 +1,5 @@
 import {range} from '@core/utils';
+import {ALPHABET_CODES, ROWS_COUNT} from '@static';
 
 export function shouldResize(event) {
   return event.target.dataset.resize;
@@ -26,11 +27,11 @@ export function nextSelector(key, {col, row}) {
   switch (key) {
     case 'Enter':
     case 'ArrowDown':
-      row++;
+      row = row + 1 > (ROWS_COUNT - 1) ? row : row + 1;
       break;
     case 'Tab':
     case 'ArrowRight':
-      col++;
+      col = col + 1 > (ALPHABET_CODES.endZ - ALPHABET_CODES.startA) ? col : col + 1;
       break;
     case 'ArrowLeft':
       col = col - 1 < MIN_VALUE ? 0 : col - 1;

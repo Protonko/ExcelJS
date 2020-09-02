@@ -6,3 +6,10 @@ export const DEFAULT_STYLES = {
 };
 
 export const DEFAULT_TITLE = 'New table';
+
+export const ROWS_COUNT = 20;
+
+export const ALPHABET_CODES = {
+  startA: 65,
+  endZ: 90,
+};

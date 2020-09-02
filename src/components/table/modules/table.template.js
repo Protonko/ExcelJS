@@ -1,10 +1,6 @@
 import {toInlineStyles, parse} from '@core/utils';
-import {DEFAULT_STYLES} from '@static';
+import {DEFAULT_STYLES, ALPHABET_CODES} from '@static';
 
-const ALPHABET_CODES = {
-  startA: 65,
-  endZ: 90,
-};
 const DEFAULT_WIDTH = '120px';
 const DEFAULT_HEIGHT = '24px';
 
