@@ -1,4 +1,4 @@
-import {range} from '@core/utils';
+import {range} from '@utils/utils';
 import {ALPHABET_CODES, ROWS_COUNT} from '@static';
 
 export function shouldResize(event) {

@@ -1,9 +1,9 @@
-import {ExcelComponent} from '@core/ExcelComponent';
-import {$} from '@core/DOM';
-import {changeTitle} from '@store/actions';
+import {debounce, removeStorage} from '@utils/utils';
 import {DEFAULT_TITLE} from '@static';
-import {debounce, removeStorage} from '@core/utils';
-import {ActiveRoute} from '@core/routes/ActiveRoute';
+import {$} from '@DOM/DOM';
+import {ExcelComponent} from '@core/ExcelComponent';
+import {changeTitle} from '@store/actions';
+import {ActiveRoute} from '@routes/ActiveRoute';
 
 const DELAY = 300;
 const DATA_ATTRS = {

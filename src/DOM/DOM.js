@@ -1,4 +1,4 @@
-class DOM {
+export class DOM {
   constructor(selector) { // '' || {}
     this.elem = typeof selector === 'string'
       ? document.querySelector(selector)
@@ -75,7 +75,7 @@ class DOM {
 
   id(parse) {
     if (parse) {
-      const parsed = this.id().split(':'); // '0:0' -> ['0', '0']
+      const parsed = this.id().split(':'); // '0:0' -> [0, 0]
 
       return {
         row: +parsed[0],

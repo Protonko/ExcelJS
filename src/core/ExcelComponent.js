@@ -1,4 +1,4 @@
-import {ListenerDOM} from '@core/ListenerDOM';
+import {ListenerDOM} from './ListenerDOM';
 
 export class ExcelComponent extends ListenerDOM {
   constructor($root, options = {}) {

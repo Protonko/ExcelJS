@@ -1,5 +1,5 @@
+import {storage} from '@utils/utils';
 import {getAllKeys} from '@pages/dashboard/modules/dashboard.functions';
-import {storage} from '@core/utils';
 
 function createTableTemplate(key) {
   const model = storage(key);

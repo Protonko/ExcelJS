@@ -1,6 +1,6 @@
+import {generateId} from '@utils/utils';
 import {Page} from '@core/Page';
-import {$} from '@core/DOM';
-import {generateId} from '@core/utils';
+import {$} from '@DOM/DOM';
 import {createRecordsTable} from './modules/dashboard.template';
 
 export class DashboardPage extends Page {

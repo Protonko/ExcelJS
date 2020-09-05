@@ -80,7 +80,7 @@ export function parse(value = '') {
 export function generateId() {
   const id = `_${Math.random()
     .toString(36)
-    .substr(2, 9)}`;
+    .substring(2, 9)}`;
 
   return id;
 }

@@ -1,5 +1,5 @@
+import {$} from '@DOM/DOM';
 import {ExcelComponent} from '@core/ExcelComponent';
-import {$} from '@core/DOM';
 import {OBSERVER_ACTIONS} from '@observer-actions';
 
 const ELEMENT_SELECTORS = {

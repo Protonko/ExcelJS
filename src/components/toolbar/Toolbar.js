@@ -1,8 +1,8 @@
-import {ExcelStateComponent} from '@core/ExcelStateComponent';
+import {$} from '@DOM/DOM';
+import {ExcelStateComponent} from '@core/ExcelStateComponent/ExcelStateComponent';
 import {OBSERVER_ACTIONS} from '@observer-actions';
 import {DEFAULT_STYLES} from '@static';
 import {createToolbar} from './modules/toolbar.template';
-import {$} from '@core/DOM';
 
 const ELEMENT_SELECTORS = {
   button: '[data-type="button"]',

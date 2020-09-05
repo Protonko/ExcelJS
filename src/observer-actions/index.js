@@ -1,4 +1,4 @@
-// Observer observer-actions
+// Observer actions
 export const OBSERVER_ACTIONS = {
   formulaInput: 'formula:input',
   formulaDone: 'formula:done',

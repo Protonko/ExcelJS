@@ -1,5 +1,5 @@
-import {$} from '@core/DOM';
-import {Observer} from '@core/Observer';
+import {$} from '@DOM/DOM';
+import {Observer} from '@core/Observer/Observer';
 import {StoreSubscriber} from '@core/StoreSubscriber';
 import {updateDate} from '@store/actions';
 

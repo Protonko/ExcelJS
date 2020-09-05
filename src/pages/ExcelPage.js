@@ -1,6 +1,6 @@
 import {Page} from '@core/Page';
-import {debounce, storage, generateId} from '@core/utils';
-import {createStore} from '@core/createStore';
+import {debounce, storage, generateId} from '@utils/utils';
+import {createStore} from '@store/createStore/createStore';
 import {rootReducer} from '@store/rootReducer';
 import {normalizeInitialState} from '@store/inititalState';
 import {Excel} from '@components/excel/Excel';

@@ -6,7 +6,7 @@ import {
   CHANGE_TITLE,
   UPDATE_DATE,
 } from './types';
-import {buildReducers} from '@core/utils';
+import {buildReducers} from '@utils/utils';
 
 const reducers = {
   [TABLE_RESIZE](state, action) {

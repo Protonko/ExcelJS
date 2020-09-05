@@ -1,4 +1,4 @@
-import {$} from '@core/DOM';
+import {$} from '@DOM/DOM';
 
 const ELEMENT_SELECTORS = {
   resizable: '[data-type="resizable"]',

@@ -1,4 +1,4 @@
-import {toInlineStyles, parse} from '@core/utils';
+import {toInlineStyles, parse} from '@utils/utils';
 import {DEFAULT_STYLES, ALPHABET_CODES} from '@static';
 
 const DEFAULT_WIDTH = '120px';

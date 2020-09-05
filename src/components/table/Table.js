@@ -1,6 +1,6 @@
+import {$} from '@DOM/DOM';
 import {ExcelComponent} from '@core/ExcelComponent';
-import {$} from '@core/DOM';
-import {parse} from '@core/utils';
+import {parse} from '@utils/utils';
 import {DEFAULT_STYLES, ROWS_COUNT} from '@static';
 import {OBSERVER_ACTIONS} from '@observer-actions';
 import * as actions from '@store/actions';
