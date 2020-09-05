@@ -1,3 +1,5 @@
+import {rgbToHex} from '@utils/utils';
+
 function createButton(button) {
   const isActive = button.active ? 'toolbar__button toolbar__button--active' : 'toolbar__button';
   const meta = `data-value='${JSON.stringify(button.value)}'`;
@@ -18,6 +20,9 @@ function createButton(button) {
 }
 
 function createColorButton(button, index) {
+  const color = button.value;
+  const colorHex = color?.startsWith('#') ? color : rgbToHex(color);
+
   return `
     <li class="toolbar__item">
         <label 
@@ -32,7 +37,7 @@ function createColorButton(button, index) {
          class="toolbar__input"
          data-type="color-button"
          data-style="${button.style}"
-         value="${button.value}"
+         value="${colorHex}"
          type="color" id="color-${index}" 
        >
     </li>

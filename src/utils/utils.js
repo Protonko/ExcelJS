@@ -84,3 +84,20 @@ export function generateId() {
 
   return id;
 }
+
+export function rgbToHex(color) {
+  const matchColors = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
+  const match = matchColors.exec(color);
+
+  if (match) {
+    return '#' + componentToHex(match[1]) + componentToHex(match[2]) + componentToHex(match[3]);
+  } else {
+    return '#FFFFFF'; // default color
+  }
+}
+
+function componentToHex(color) {
+  const hex = Number(color).toString(16) ?? '';
+
+  return hex.length === 1 ? '0' + hex : hex;
+}

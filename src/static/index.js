@@ -3,7 +3,8 @@ export const DEFAULT_STYLES = {
   fontStyle: 'normal',
   textAlign: 'left',
   textDecoration: 'none',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: 'rgb(255, 255, 255)',
+  color: 'rgb(0, 0, 0)',
 };
 
 export const DEFAULT_TITLE = 'New table';

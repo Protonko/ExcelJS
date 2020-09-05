@@ -47,7 +47,6 @@ export class Table extends ExcelComponent {
       this.selection.current.focus();
     });
     this.$on(OBSERVER_ACTIONS.toolbarApplyStyle, value => {
-      console.log(value);
       this.selection.applyStyle(value);
       this.$dispatch(actions.applyStyle({
         value,

@@ -3,6 +3,7 @@ import {buildReducers} from './utils';
 
 const TIME = 1000;
 const WORD = 'string';
+const RGB_COLOR = 'rgb(140, 123, 34)';
 const PARSED_EXPRESSION = '=2 + 2';
 const RESULT = 4;
 const CAPITALISED_WORD = 'String';
@@ -41,6 +42,7 @@ describe('utils', () => {
     expect(utils.debounce).toBeDefined();
     expect(utils.parse).toBeDefined();
     expect(utils.generateId).toBeDefined();
+    expect(utils.rgbToHex).toBeDefined();
   });
 
   test('Should capitalise word', () => {
@@ -96,5 +98,13 @@ describe('utils', () => {
 
   test('Should start with _', () => {
     expect(utils.generateId().length).toBe(8);
+  });
+
+  test('Should return hex', () => {
+    expect(utils.rgbToHex(RGB_COLOR)).toBe('#8c7b22');
+  });
+
+  test('Should return hex white color', () => {
+    expect(utils.rgbToHex('')).toBe('#FFFFFF');
   });
 });
