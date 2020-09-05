@@ -38,7 +38,6 @@ export class Header extends ExcelComponent {
       const decision = confirm('Are you sure you want to delete the table?');
 
       if (decision) {
-        console.log(ActiveRoute.param);
         removeStorage(`excel:${ActiveRoute.param[1]}`);
         ActiveRoute.navigate('');
       }
