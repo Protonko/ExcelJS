@@ -1,5 +1,4 @@
 import * as utils from './utils';
-import {buildReducers} from './utils';
 
 const TIME = 1000;
 const WORD = 'string';
@@ -50,11 +49,11 @@ describe('utils', () => {
   });
 
   test('Should return function', () => {
-    expect(buildReducers(reducer, defaultState)).toBeInstanceOf(Function);
+    expect(utils.buildReducers(reducer, defaultState)).toBeInstanceOf(Function);
   });
 
   test('Should return default state', () => {
-    expect(buildReducers(reducer, defaultState)(defaultState, ACTION)).toEqual(newState);
+    expect(utils.buildReducers(reducer, defaultState)(defaultState, ACTION)).toEqual(newState);
   });
 
   test('Should return true because a === b', () => {
