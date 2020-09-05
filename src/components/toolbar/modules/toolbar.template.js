@@ -17,6 +17,28 @@ function createButton(button) {
   `;
 }
 
+function createColorButton(button, index) {
+  return `
+    <li class="toolbar__item">
+        <label 
+          class="toolbar__button button button--icon"
+          for="color-${index}"
+        >
+            <svg class="toolbar__button-icon icon--toolbar">
+                <use xlink:href="icons/icons.svg#icon-${button.icon}"></use>
+            </svg>
+       </label>
+       <input
+         class="toolbar__input"
+         data-type="color-button"
+         data-style="${button.style}"
+         value="${button.value}"
+         type="color" id="color-${index}" 
+       >
+    </li>
+  `;
+}
+
 export function createToolbar(state) {
   const buttons = [
     {
@@ -51,11 +73,25 @@ export function createToolbar(state) {
     },
   ];
 
+  const colorButtons = [
+    {
+      icon: 'color-fill',
+      value: state['backgroundColor'],
+      style: 'backgroundColor',
+    },
+    {
+      icon: 'text-color',
+      value: state['color'],
+      style: 'color',
+    },
+  ];
+
   return `
     <div class="container-excel">
         <div class="toolbar">
            <ul class="toolbar__list list list--reset">
             ${buttons.map(createButton).join('')}
+            ${colorButtons.map(createColorButton).join('')}
            </ul>
         </div>
     </div>

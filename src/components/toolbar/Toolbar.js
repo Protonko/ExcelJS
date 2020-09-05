@@ -6,13 +6,14 @@ import {createToolbar} from './modules/toolbar.template';
 
 const ELEMENT_SELECTORS = {
   button: '[data-type="button"]',
+  colorButton: '[data-type="color-button"]',
 };
 
 export class Toolbar extends ExcelStateComponent {
   constructor($root, options) {
     super($root, {
       name: 'Toolbar',
-      listeners: ['click'],
+      listeners: ['click', 'change'],
       subscribe: ['currentStyles'],
       ...options,
     });
@@ -41,6 +42,15 @@ export class Toolbar extends ExcelStateComponent {
 
       this.$observe(OBSERVER_ACTIONS.toolbarApplyStyle, value);
     }
+  }
+
+  onChange(event) {
+    const input = event.target;
+    const $input = $(input);
+    const color = input.value;
+    const style = $input.data.style;
+
+    this.$observe(OBSERVER_ACTIONS.toolbarApplyStyle, {[style]: color});
   }
 
   toHTML() {

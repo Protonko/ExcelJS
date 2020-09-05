@@ -20,8 +20,6 @@ export class ExcelPage extends Page {
     const params = this?.params[1] ?? generateId();
     const state = storage(storageName(params));
     const initialState = normalizeInitialState(state);
-    console.log('%c STATE', 'font-weight: 700; color: green', state);
-    console.log('%c NORMALIZE STATE', 'font-weight: 700; color: purple', initialState);
     const store = createStore(rootReducer, initialState);
     const stateListener = debounce(state => {
       storage(storageName(params), state);

@@ -18,6 +18,5 @@ export function normalizeInitialState(state) {
     date: new Date().toJSON(),
   };
 
-  console.log(state ? 'true' : 'false');
   return state ? normalize(state) : defaultState;
 }

@@ -22,6 +22,8 @@
     outline: none;
 
     &--selected {
+        z-index: $z-index-cell-selected;
+
         border: none;
         outline: rem(2px) solid $cell-selected;
     }

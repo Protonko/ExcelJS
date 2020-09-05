@@ -6,3 +6,5 @@ import './svg/bold.svg';
 import './svg/italic.svg';
 import './svg/underlined.svg';
 import './svg/add.svg';
+import './svg/color-fill.svg';
+import './svg/text-color.svg';
