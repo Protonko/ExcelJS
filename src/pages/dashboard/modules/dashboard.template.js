@@ -1,14 +1,16 @@
 import {storage} from '@utils/utils';
 import {getAllKeys} from '@pages/dashboard/modules/dashboard.functions';
+import {DEFAULT_TITLE} from '@static';
 
 function createTableTemplate(key) {
   const model = storage(key);
   const id = key.split(':')[1];
+  const title = model.title || DEFAULT_TITLE;
 
   return `
     <div class="info">
         <p class="info__text">
-            <a href="#excel/${id}" class="info__text-link">${model.title}</a>
+            <a href="#excel/${id}" class="info__text-link">${title}</a>
         </p>
   
         <p class="info__text">
@@ -22,7 +24,7 @@ export function createRecordsTable() {
   const keys = getAllKeys();
 
   if (!keys.length) {
-    return `<p>Tables not found</p>`;
+    return `<p class="dashboard__message">Tables not found</p>`;
   }
 
   return `

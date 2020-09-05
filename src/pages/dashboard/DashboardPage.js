@@ -9,7 +9,7 @@ export class DashboardPage extends Page {
 
     return $.create('div', 'dashboard').html(
       `
-      <header class="header header-dashboard">
+      <header class="header header--dashboard">
             <div class="container">
                 <div class="header__wrapper">
                     <div class="logo header__logo">
@@ -34,7 +34,7 @@ export class DashboardPage extends Page {
                 <div class="container">
                     <ul class="dashboard__items">
                         <li class="dashboard__item">
-                            <a href="#excel/${newTableId}" class="card">
+                            <a href="#excel/${newTableId}" class="card" title="Create new table">
                                 <span>
                                     <svg class="icon--add">
                                         <use xlink:href="icons/icons.svg#icon-add"></use>

@@ -28,6 +28,17 @@ $text-color-secondary: $edward;
 $cell-info-color: $bombay;
 $cell-selected: $royal-blue;
 
+// layout
+$screen-min-sm: "(min-width: 576px)";
+$screen-min-md: "(min-width: 768px)";
+$screen-min-lg: "(min-width: 992px)";
+$screen-min-xl: "(min-width: 1200px)";
+
+$screen-max-sm: "(max-width: 576px)";
+$screen-max-md: "(max-width: 768px)";
+$screen-max-lg: "(max-width: 992px)";
+$screen-max-xl: "(max-width: 1200px)";
+
 // sizes
 $container-width: 1170px;
 $min-cell-width: 40px;

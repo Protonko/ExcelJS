@@ -84,6 +84,7 @@ export class Table extends ExcelComponent {
     const $input = $(event.target);
     const text = $input.text();
 
+    $input.attr('data-value', text);
     this.updateTextInStore(text);
   }
 

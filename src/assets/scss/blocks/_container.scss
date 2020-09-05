@@ -1,7 +1,26 @@
 .container {
+    width: 100%;
     max-width: rem($container-width);
     margin-right: auto;
     margin-left: auto;
+    padding-right: rem(15px);
+    padding-left: rem(15px);
+
+    @media #{$screen-min-sm} {
+        max-width: rem(540px);
+    }
+
+    @media #{$screen-min-md} {
+        max-width: rem(720px);
+    }
+
+    @media #{$screen-min-lg} {
+        max-width: rem(960px);
+    }
+
+    @media #{$screen-min-xl} {
+        max-width: rem(1140px);
+    }
 
     &-excel {
         max-width: rem($container-width);

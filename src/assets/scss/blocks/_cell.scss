@@ -3,6 +3,7 @@
 
     z-index: $z-index-cell;
 
+    overflow: hidden;
     width: $cell-width;
     min-width: $min-cell-width;
     height: 100%;

@@ -48,7 +48,7 @@ export class Header extends ExcelComponent {
   }
 
   toHTML() {
-    const title = this.store.getState().title ?? DEFAULT_TITLE;
+    const title = this.store.getState().title || DEFAULT_TITLE;
 
     return `
       <div class="container-excel">

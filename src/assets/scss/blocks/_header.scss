@@ -1,5 +1,5 @@
 .header {
-    &-dashboard {
+    &--dashboard {
         position: fixed;
         z-index: $z-index-header;
         top: 0;
@@ -24,6 +24,12 @@
 
         &-icon {
             padding-top: rem(7px);
+        }
+    }
+
+    &__title {
+        @media #{$screen-max-lg} {
+            display: none;
         }
     }
 }

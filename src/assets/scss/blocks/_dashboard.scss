@@ -1,6 +1,4 @@
 .dashboard {
-    min-width: rem(780px);
-
     &__wrapper {
         margin-top: rem($header-height);
     }
@@ -33,5 +31,11 @@
                 font-weight: $bold;
             }
         }
+    }
+
+    &__message {
+        padding-top: rem(40px);
+
+        text-align: center;
     }
 }
