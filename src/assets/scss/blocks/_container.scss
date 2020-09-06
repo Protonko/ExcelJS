@@ -1,10 +1,12 @@
 .container {
+    $horizontal-padding: 15px;
+
     width: 100%;
     max-width: rem($container-width);
     margin-right: auto;
     margin-left: auto;
-    padding-right: rem(15px);
-    padding-left: rem(15px);
+    padding-right: rem($horizontal-padding);
+    padding-left: rem($horizontal-padding);
 
     @media #{$screen-min-sm} {
         max-width: rem(540px);
@@ -23,7 +25,10 @@
     }
 
     &-excel {
+        $horizontal-margin: 20px;
+
         max-width: rem($container-width);
-        margin-left: rem(20px);
+        margin-left: rem($horizontal-margin);
+        margin-right: rem($horizontal-margin);
     }
 }

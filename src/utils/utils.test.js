@@ -3,7 +3,9 @@ import * as utils from './utils';
 const TIME = 1000;
 const WORD = 'string';
 const RGB_COLOR = 'rgb(140, 123, 34)';
-const PARSED_EXPRESSION = '=2 + 2';
+const HEX_COLOR = '#8c7b22';
+const WHITE_HEX = '#FFFFFF';
+const PARSED_EXPRESSION = '=2+2';
 const RESULT = 4;
 const CAPITALISED_WORD = 'String';
 const STYLES = {fontSize: 12, backgroundColor: 'rose'};
@@ -100,10 +102,10 @@ describe('utils', () => {
   });
 
   test('Should return hex', () => {
-    expect(utils.rgbToHex(RGB_COLOR)).toBe('#8c7b22');
+    expect(utils.rgbToHex(RGB_COLOR)).toBe(HEX_COLOR);
   });
 
   test('Should return hex white color', () => {
-    expect(utils.rgbToHex('')).toBe('#FFFFFF');
+    expect(utils.rgbToHex('')).toBe(WHITE_HEX);
   });
 });

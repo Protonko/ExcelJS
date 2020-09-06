@@ -1,5 +1,5 @@
 import {Router} from './Router';
-import {Page} from '../../core/Page';
+import {Page} from '@core/Page/Page';
 
 class DashboardPageMock extends Page {
   getRoot() {

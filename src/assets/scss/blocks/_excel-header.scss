@@ -5,6 +5,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media #{$screen-max-md} {
+            flex-wrap: wrap;
+        }
     }
 
     &__logo {
@@ -29,11 +33,20 @@
         display: flex;
         flex-grow: 1;
         justify-content: flex-end;
+
+        @media #{$screen-max-md} {
+            justify-content: space-between;
+            margin-top: rem(10px);
+        }
     }
 
     &__button {
         &:not(:last-child) {
             margin-right: rem(10px);
+        }
+
+        @media #{$screen-max-md} {
+            flex-grow: 1;
         }
     }
 }

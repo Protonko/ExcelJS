@@ -1,5 +1,5 @@
 import {generateId} from '@utils/utils';
-import {Page} from '@core/Page';
+import {Page} from '@core/Page/Page';
 import {$} from '@DOM/DOM';
 import {createRecordsTable} from './modules/dashboard.template';
 
