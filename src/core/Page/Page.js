@@ -1,4 +1,4 @@
-import {generateId} from '@utils/utils';
+import {generateId} from '../../utils/utils';
 
 export class Page {
   constructor(params) {
